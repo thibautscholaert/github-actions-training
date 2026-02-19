@@ -22,7 +22,7 @@ jobs:
         run: |
             curl --request POST \
                 --url $REPO/issues \
-                --header 'authorization: Bearer ${{github.token}}' \
+                --header 'authorization: Bearer ${{secrets.TOKEN}}' \
                 --header 'content-type: application/json' \
                 --data '{
                     "title": "Automated issue for commit: ${{ steps.short_sha.outputs.sha_short }}",
