@@ -19,7 +19,7 @@ jobs:
         shell: bash
         run: |
             curl --request POST \
-                --url $REPO/issues \
+                --url ${{github.env.REPO}}}/issues \
                 --header 'authorization: Bearer ${{github.token}}' \
                 --header 'content-type: application/json' \
                 --data '{
