@@ -36,8 +36,6 @@ jobs:
         runs-on: ubuntu-latest
         if: ${{ github.ref_name == 'main' }}
         steps:
-            - name: echo
-              run: echo ${{github.ref_name}} 
             - name: checkout
               uses: actions/checkout@v6
             - name : setup node
