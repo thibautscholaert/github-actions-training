@@ -2,7 +2,15 @@ name: npm test from reusable
 
 on:
   workflow_dispatch:
-  push: 
+    inputs:
+      version:
+        default: 'lts'
+        type: choice
+        options:
+          - 'lts'
+          - '20'
+          - '22'
+  push:
 
 jobs:
   test:
