@@ -23,3 +23,5 @@ jobs:
       - name: Run tests
         run: |
           npm test
+      - name: summary
+        run: echo "### Successfully ran tests wiht node version ${{inputs.version}} :rocket:" >> $GITHUB_STEP_SUMMARY
