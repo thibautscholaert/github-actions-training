@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
                
 jobs:
-  install-deps:
+  test:
     runs-on: ubuntu-latest
     steps: 
       - name: Checkout code
@@ -13,19 +13,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 'lts/*'
-
       - name: Install dependencies
         run: npm install
-  run-deps:
-    runs-on: ubuntu-latest
-    steps: 
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: 'lts/*'
       - name: Run tests
         run: npm test
-    needs: install-deps
