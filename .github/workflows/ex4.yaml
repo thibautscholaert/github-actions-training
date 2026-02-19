@@ -2,6 +2,7 @@ name: npm test from reusable
 
 on:
   workflow_dispatch:
+  push: 
 
 jobs:
   test:
