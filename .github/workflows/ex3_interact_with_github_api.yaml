@@ -5,6 +5,8 @@ on:
 jobs:
   create-issue:
     runs-on: ubuntu-latest
+    env:
+      REPO: "https://api.github.com/repos/thibautscholaert/github-actions-training/issues"
     steps:
       - name: checkout
         uses: actions/checkout@v6
@@ -17,7 +19,7 @@ jobs:
         shell: bash
         run: |
             curl --request POST \
-                --url https://api.github.com/repos/thibautscholaert/github-actions-training/issues/issues \
+                --url $REPO/issues \
                 --header 'authorization: Bearer ${{github.token}}' \
                 --header 'content-type: application/json' \
                 --data '{
