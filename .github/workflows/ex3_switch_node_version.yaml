@@ -5,13 +5,19 @@ on:
 jobs:
   run-npm-test:
     runs-on: ubuntu-latest
+    env: 
+        NODE_VERSION: 20
     steps:
         - name: checkout
           uses: actions/checkout@v6
         - name : setup node
           uses: actions/setup-node@v6
           with:
-            node-version: 'lts/*'
+            node-version: '$NODE_VERSION'
+        - name : node version
+          shell : bash
+          run: |
+            node -v
         - name: run test
           shell: bash
           run: |
