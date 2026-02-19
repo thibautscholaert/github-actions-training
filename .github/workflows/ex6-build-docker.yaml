@@ -34,6 +34,7 @@ jobs:
             npm test
   docker-build:
         runs-on: ubuntu-latest
+        if: ${{ github.ref == 'main' }}
         steps:
             - name: checkout
               uses: actions/checkout@v6
