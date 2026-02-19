@@ -1,0 +1,26 @@
+name: npm test
+on: 
+  workflow_dispatch:
+
+jobs:
+  run-npm-install:
+    runs-on: ubuntu-latest
+    steps:
+        - name: checkout
+          uses: actions/checkout@v6
+        - name : setup node
+          uses: actions/setup-node@v6
+          with:
+            node-version: 'lts/*'
+        - name: run install
+          shell: bash
+          run: |
+            npm install
+            npm test
+    strategy:
+      matrix:
+        node: [20, lts]
+        os: [ubuntu-latest, ubuntu-22.04]
+        include:
+          - os: ubuntu-latest
+            node: 18
