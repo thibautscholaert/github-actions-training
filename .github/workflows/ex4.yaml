@@ -1,0 +1,10 @@
+name: npm test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    uses: thibautscholaert/github-actions-training/.github/workflows/test.yml@main 
+    with:
+      version: '20'
